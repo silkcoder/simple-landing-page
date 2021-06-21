@@ -1,37 +1,108 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    font-family: 'Poppins';
 }
 
-.section-banner {
-    background-color: #5200FF;
-    color: #FFFFFF;
-}
-
-.section-banner-cover {
+.left-col {
+    background: #5200FF;
+    color: white;
+    position: relative;
     text-align: center;
+}
+
+.left-col::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.22;
     background-image: url('../images/bg-image.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0.22;
+    background-position: 100%;
 }
 
-.section-banner .title {
-    font-family: 'Bebas Neue', cursive;
-    padding: 0px;
-    margin: 0px;
-    color: #FFFFFF;
-    font-size: 64px;
-    line-height: 77px;
+.content {
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Bebas Neue';
     font-weight: normal;
+    font-size: 4rem;
+    line-height: 1.2em;
 }
 
-.section-banner p {
-    font-size: 24px;
+p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0;
 }
 
-.section-form,
-.section-banner-cover {
+.left-col,
+.right-col {
     padding: 6.75rem 8vw;
+}
+
+label {
+    display: block;
+    font-size: 1.125rem;
+    margin-bottom: .77rem;
+}
+
+input {
+    width: 100%;
+    background: #ededed;
+    border: 1px solid #c7c7c7;
+    font-size: 1rem;
+    padding: .75rem;
+    outline: none;
+    margin-bottom: 2.5em;
+}
+
+button {
+    width: 100%;
+    background: #5200ff;
+    padding: 1em;
+    color: white;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 770px) {
+    .form {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 2em;
+    }
+    button {
+        width: auto;
+        padding: 1em 2.5em;
+    }
+}
+
+@media only screen and (min-width: 1260px) {
+    body {
+        display: flex;
+    }
+    .left-col,
+    .right-col {
+        flex-basis: 0;
+        flex-grow: 1;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+    .left-col {
+        text-align: right;
+    }
 }
